@@ -5,9 +5,12 @@
 90.A-
 99.A+
 79.C++
-18.Smoke
-21.Drink
+18.America
+21.Reinhardt2.0
 9000.Priceless
 3.The
 2.Final
 1.Countdown
+23.Lord Celldwell
+69.Reinhardt
+17.oatmeal

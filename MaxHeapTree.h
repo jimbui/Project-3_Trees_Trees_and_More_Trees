@@ -79,7 +79,8 @@ public:
 	}
 
 	int getHeight() // should be log_2(element_count) or something. // O(1).
-	{	if (element_count == 0) return 0 ;
+	{	
+		if (element_count == 0) return 0 ;
 		else return log2(element_count) ;
 	}
 
@@ -115,12 +116,13 @@ public:
 			}
 
 			myfile.close() ;
+			std::cout << "  Tree has been build from text file. \n\n" ;
 			return ;
 		}
 
 		else 
 		{
-			std::cout << "file could not be opened. \n\n" ;
+			std::cout << "  File does not exist. \n\n" ;
 			return ;
 		}
 	}
@@ -130,6 +132,7 @@ public:
 		dynamic_array = new HeapTreeNode<type>[initial_size] ;
 		array_size = initial_size ;
 		element_count = 0 ;
+		std::cout << "  Tree cleared and reset. \n\n" ;
 	}
 
 	void insert(int key_in , type data_in) // satisfies the heap property. // worst case is that it has to go though all the levels to the root , making this O(log_2(n))

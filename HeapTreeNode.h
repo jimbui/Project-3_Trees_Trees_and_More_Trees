@@ -25,20 +25,9 @@ public:
 		data_element = data_in ;
 	}
 
-	int get_key()
-	{
-		return key_element ;
-	}
-
-	type get_data()
-	{
-		return data_element ;
-	}
-
-	void display()
-	{
-		std::cout << " key: " << this->get_key() << "    element: " << this->get_data() << " \n" ;
-	}
+	int get_key(){return key_element ;}
+	type get_data(){return data_element ;}
+	void display(){std::cout << "  [" << this->get_key() << " , " << this->get_data() << "] \n" ;}
 } ;
 
 #endif

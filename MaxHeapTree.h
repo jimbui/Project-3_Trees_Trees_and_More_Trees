@@ -153,7 +153,7 @@ public:
 
 	void delMax() // worst case is that it has to go though all the levels to the end , making this O(log_2(n))
 	{
-		if (empty()) std::cout << "there is nothing to delete in the tree. \n\n" ;
+		if (empty()) std::cout << "  There is nothing to delete in the tree. \n\n" ;
  
 		else
 		{	
@@ -220,6 +220,43 @@ public:
 
 		std::cout << " \n" ;
 	}
+
+	void display_tree()
+	{
+		if (empty()) std::cout << "  The tree is empty. \n\n" ;
+
+		else
+		{
+			display_recurse(1 , 0) ;
+			std::cout << " \n" ;
+		}
+	}
+
+	void display_recurse(int i , int j)
+	{
+		int k = 0 ;
+
+		//if (j != 0)
+		{
+			while (k < j)
+			{
+				std::cout << "   |    " ;
+				k++ ;
+			}
+		}
+
+		dynamic_array[i].display() ;
+
+		if (dynamic_array[i * 2].get_key() != -1 && i * 2 <= element_count)
+		{
+			display_recurse(i * 2 , j + 1) ;
+		}
+
+		if (dynamic_array[i * 2 + 1].get_key() != -1 && i * 2 + 1 <= element_count)
+		{
+			display_recurse(i * 2 + 1 , j + 1) ;
+		}
+	} 
 
 	void insert_swap(int index) // recusively check if the parent is smaller.
 	{

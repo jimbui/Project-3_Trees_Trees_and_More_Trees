@@ -129,8 +129,9 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 		std::cout << "    7.  Clear the tree and reset to initial size." << std::endl ;
 		std::cout << "    8.  Insert item into tree." << std::endl ;
 		std::cout << "    9.  Pop max key." << std::endl ;
-		std::cout << "    10. Display the whole entire array all the way from the start to the very bitter end." << std::endl ;
-		std::cout << "    11. Go back." << std::endl << std::endl ;
+		std::cout << "    10. Display the tree." << std::endl ;
+		std::cout << "    11. Display the whole entire array all the way from the start to the very bitter end." << std::endl ;
+		std::cout << "    12. Go back." << std::endl << std::endl ;
 
 		std::cout << "  " ;
 		std::cin >> input ; std::cin.clear() ; std::cin.ignore() ;
@@ -234,10 +235,17 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 		else if (input == 10)
 		{
 			Clear() ;
+			why_is_the_rum_gone.display_tree() ;
+		}
+
+
+		else if (input == 11)
+		{
+			Clear() ;
 			why_is_the_rum_gone.display() ;
 		}
 
-		else if (input == 11)
+		else if (input == 12)
 		{
 			Clear() ;
 			break ;

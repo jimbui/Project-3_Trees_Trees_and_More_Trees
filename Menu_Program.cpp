@@ -107,7 +107,7 @@ void Menu_Program::Heap_Tree_Create()
 		else
 		{
 			Clear() ;
-			std::cout << std::endl << "Invalid input." << std::endl << std::endl ;
+			std::cout << std::endl << "  Invalid input." << std::endl << std::endl ;
 		}
 	}
 }
@@ -129,7 +129,8 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 		std::cout << "    7.  Clear the tree and reset to initial size." << std::endl ;
 		std::cout << "    8.  Insert item into tree." << std::endl ;
 		std::cout << "    9.  Pop max key." << std::endl ;
-		std::cout << "    10. Go back." << std::endl << std::endl ;
+		std::cout << "    10. Display the whole entire array all the way from the start to the very bitter end." << std::endl ;
+		std::cout << "    11. Go back." << std::endl << std::endl ;
 
 		std::cout << "  " ;
 		std::cin >> input ; std::cin.clear() ; std::cin.ignore() ;
@@ -199,7 +200,12 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 				std::cout << "  Please input the key of the element." << std::endl << std::endl << "  " ;
 				std::cin >> key_in ; std::cin.clear() ; std::cin.ignore() ;
 
-				if (key_in < 0) std::cout << "  Key must be greater than 0. \n\n" ;
+				if (key_in <= 0) 
+				{
+					Clear() ;
+					std::cout << "  Key must be greater than 0. \n\n" ;
+				}
+
 				else break ;
 			}
 
@@ -208,6 +214,7 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 
 			why_is_the_rum_gone.insert(key_in , data_in) ;
 
+			Clear() ;
 			std::cout << "\n  Element has been inserted. \n\n" ;
 		}
 
@@ -227,13 +234,13 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 		else if (input == 10)
 		{
 			Clear() ;
-			break ;
+			why_is_the_rum_gone.display() ;
 		}
 
 		else if (input == 11)
 		{
 			Clear() ;
-			why_is_the_rum_gone.display() ;
+			break ;
 		}
 
 		else

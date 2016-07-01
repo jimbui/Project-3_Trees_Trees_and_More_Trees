@@ -37,8 +37,7 @@ public:
 
 	void display()
 	{
-		std::cout << " key: " << this->get_key() << "\n" ;
-		std::cout << "                   element: " << this->get_data() << "\n\n" ;
+		std::cout << " key: " << this->get_key() << "    element: " << this->get_data() << " \n" ;
 	}
 } ;
 

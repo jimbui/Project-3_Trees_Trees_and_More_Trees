@@ -92,8 +92,13 @@ public:
 
 	int leaves() // returns the number of leaves in the tree. // O(1).
 	{
+		// the commented out equation was doing it the hard way.
+
 		// int not_leaves = (pow(2 , ((int)this->getHeight() + 1)) - 1) - element_count ; 
 		// return pow(2 , (int)this->getHeight()) - not_leaves + not_leaves / 2 ;
+
+		// this was derived by looking at the tree.
+
 		return (element_count + 1) / 2 ;
 	}
 
@@ -208,12 +213,12 @@ public:
 
 		while (i < array_size)
 		{
-			std::cout << "dynamic_array[" << i << "]: " ;
+			std::cout << "  dynamic_array[" << i << "]: " ;
 			dynamic_array[i].display() ;
 			i++ ;
 		}
 
-		// std::cout << " \n" ;
+		std::cout << " \n" ;
 	}
 
 	void insert_swap(int index) // recusively check if the parent is smaller.

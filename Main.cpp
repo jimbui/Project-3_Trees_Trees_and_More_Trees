@@ -1,4 +1,4 @@
-// Project 03 - Trees , Trees , and Trees (A Tale of Three Forests)
+// Project 03 - Trees , Trees , and Trees (A Tale of Two Forests)
 // by:  Manuel Martinez , John Santoro , and Jim Bui
 
 #include "Menu_Program.h"

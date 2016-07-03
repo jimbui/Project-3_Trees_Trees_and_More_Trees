@@ -502,7 +502,7 @@ public:
 			RebalanceBase(n, numOps, false);
 		}
 
-		cout << "Runtime : number of elements = " << numOps << " : " << sz << " = " << (double)numOps / sz << endl;
+		// cout << "Runtime : number of elements = " << numOps << " : " << sz << " = " << (double)numOps / sz << endl;
 	}
 
 	// Deletes an existing node with the specified key.  O(n) due to rebalancing.
@@ -632,6 +632,6 @@ public:
 			sz--;
 		}
 
-		cout << "Runtime : number of elements = " << numOps << " : " << sz << " = " << (double)numOps / sz << endl;
+		// cout << "Runtime : number of elements = " << numOps << " : " << sz << " = " << (double)numOps / sz << endl;
 	}
 };

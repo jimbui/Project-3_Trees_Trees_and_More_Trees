@@ -13,39 +13,51 @@ private:
 
 	int getleaves(GenTreeNode<type> *temp)
 	{
-		int valAdded = 0 ;
-		if (temp == nullptr) {return 0;}
+		int valAdded = 0;
 
-		if (temp->children->isEmpty()) {valAdded = 1;}
+		if (temp == nullptr) 
+			return 0;
+
+		if (temp->children->isEmpty()) 
+			valAdded = 1;
 
 		int sz = temp->children->getSize();
 		int counter = 0;
 
-		for (counter = 0; counter < sz;counter++){
+		for (counter = 0; counter < sz;counter++)
+		{
 			valAdded += getleaves(temp->children->getData(counter));
 		}
+
 		return valAdded;
 	}
 
-	GenTreeNode<type> * findNodePrivate (int count, int key, GenTreeNode<type> *temp)
+	// Modification:  No recursion (runtime = O(n))
+	GenTreeNode<type>* findNodePrivate(/*int count,*/ int key, GenTreeNode<type> *temp)
 	{
-		/*if (temp == nullptr) {throw underflow_error ("The list is empty");}
+		if (temp == nullptr)
+			throw underflow_error("The tree is empty.");
 
-		int sz = temp->children->getSize();
-		int counter = 0;
+		GenQueue< GenTreeNode<type>* > Q;
 
-		if (key == temp->key) {return temp;}
-		else {
-			for (counter = 0; counter < sz;counter++){
-				temp = findNodePrivate(count--, key, temp->children->getData(counter));
-			}
+		Q.enqueue(temp);
+
+		while (!Q.isEmpty()) 
+		{
+			GenTreeNode<type> *n = Q.dequeue();
+
+			// n->Visit();
+			if (n->key == key)
+				return n;
+
+			int sz = n->children->getSize();
+			int counter = 0;
+
+			for (counter = 0; counter < sz; counter++)
+				Q.enqueue(n->children->getData(counter));
 		}
 
-		if (count == 0)
-		throw underflow_error ("The data was not found");*/
-
-		return temp;
-
+		throw underflow_error("The data was not found");
 	}
 
 public:
@@ -118,10 +130,14 @@ public:
 		return siblings;
 	}
 
+	// O(n) is the worst case scenario.  It will occur when the tree has a single branch extending from its root.
 	GenTreeNode<type>* findCommonAncestor(GenTreeNode<type>* node1, GenTreeNode<type>* node2)
 	{
-		int depthNode1 = getDepth(node1);
-		int depthNode2 = getDepth(node2);
+		GenTreeNode<type>* it1 = node1;
+		GenTreeNode<type>* it2 = node2;
+
+		int depthNode1 = getDepth(it1);
+		int depthNode2 = getDepth(it2);
 
 		if (depthNode1 == 0 || depthNode2 == 0)
 			return nullptr;
@@ -131,29 +147,29 @@ public:
 			if (depthNode2 > depthNode1)
 			{
 				depthNode2--;
-				node2 = node2->parent;
+				it2 = it2->parent;
 			}
 			else if (depthNode1 > depthNode2)
 			{
 				depthNode1--;
-				node1 = node1->parent;
+				it1 = it1->parent;
 			}
 			else 
 			{
 				depthNode1--;
 				depthNode2--;
-				node1 = node1->parent;
-				node2 = node2->parent;
-			}
+				it1 = it1->parent;
+				it2 = it2->parent;
 
-			if (node1 == node2)
-				return node1;
+				if (it1 == it2)  // The common ancestor of two nodes should not be one of the nodes itself.
+					return it1;
+			}
 		}
 	}
 
 	GenTreeNode<type>* findNode(int key)
 	{
-		return findNodePrivate(size, key, root);
+		return findNodePrivate(key, root);
 	}
 
 	//Visit the passed node data
@@ -317,5 +333,4 @@ public:
 	{
 
 	}
-
 };

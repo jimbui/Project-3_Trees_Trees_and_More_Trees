@@ -6,7 +6,10 @@
 #include <string>
 
 #include "MaxHeapTree.h"
+#include "AVLTree.h"
+#include "GenLinkedTreeClass.h"
 #include "Menu_Program.h"
+#include "PrintingPress.h"
 
 
 class Menu_Program
@@ -24,6 +27,9 @@ private:
 
 	void Heap_Tree_Create() ;
 	void Heap_Tree_Loop(int stellaris) ;
+
+	void AVL_Tree_Create();
+	void AVL_Tree_Loop();
 } ;
 
 #endif

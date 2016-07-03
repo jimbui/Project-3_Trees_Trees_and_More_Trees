@@ -1,6 +1,5 @@
 #pragma once
 #include "AVLTree.h"
-#include "GeneralTree.h"
 
 template<class T> class PrintingPress
 {

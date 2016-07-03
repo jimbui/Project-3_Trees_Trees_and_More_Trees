@@ -75,6 +75,7 @@ public:
 	{
 		if (this == nullptr)
 			return;
+
 		GenQueue< GenTreeNode<type>* > Q;
 		Q.enqueue(this);
 

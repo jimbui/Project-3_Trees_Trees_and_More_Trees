@@ -21,7 +21,7 @@ void Menu_Program::Clear()
 
 void Menu_Program::Greeting()
 {
-	std::cout << std::endl << "Project 02 Program - Stack , Queue , and Hash Table" << std::endl ;
+	std::cout << std::endl << "Project 03 Program - Trees , Trees , and more Trees" << std::endl ;
 	std::cout << std::endl << "    by:  Manuel Martinez , John Santoro , and Jim Bui" << std::endl << std::endl ;
 }
 
@@ -54,6 +54,7 @@ void Menu_Program::Main_Loop()
 		else if (input == 3)
 		{
 			Clear() ;
+			AVL_Tree_Create();
 		}
 
 		else if (input == 4)
@@ -256,5 +257,233 @@ void Menu_Program::Heap_Tree_Loop(int stellaris)
 			Clear() ;
 			std::cout << std::endl << "  Invalid input." << std::endl << std::endl ;
 		}
+	}
+}
+
+void Menu_Program::AVL_Tree_Create()
+{
+	int input = 0;
+
+	while (true)
+	{
+		std::cout << "  AVL Tree Menu" << std::endl << std::endl;
+		std::cout << "    1.  Create an AVL tree." << std::endl;
+		std::cout << "    2.  Go back." << std::endl << std::endl;
+
+		std::cout << "  ";
+		std::cin >> input; std::cin.clear(); std::cin.ignore();
+
+		if (input == 1)
+		{
+			Clear();
+			std::cout << "  Created an AVL tree." << std::endl << std::endl;
+			AVL_Tree_Loop();
+			Clear();
+			break;
+		}
+
+		else if (input == 2)
+		{
+			Clear();
+			break;
+		}
+
+		else
+		{
+			Clear();
+			std::cout << std::endl << "  Invalid input." << std::endl << std::endl;
+		}
+	}
+}
+
+void Menu_Program::AVL_Tree_Loop()
+{
+	int input = 0;
+	AVLTree<string> avlTree;
+
+	while (true)
+	{
+		std::cout << "  AVL Tree Menu" << std::endl << std::endl;
+		std::cout << "    1.  Return root of tree." << std::endl;
+		std::cout << "    2.  Return number of elements in the tree." << std::endl;
+		std::cout << "    3.  Returns the height of the tree." << std::endl;
+		std::cout << "    4.  Check if the tree is empty." << std::endl;
+		std::cout << "    5.  Return the number of leaves in the tree." << std::endl;
+		std::cout << "    6.  Finds a specific node with the key the user enters." << std::endl;
+		std::cout << "    7.  Preorder traversal." << std::endl;
+		std::cout << "    8.  Postorder traversal." << std::endl;
+		std::cout << "    9.  Levelorder traversal." << std::endl;
+		std::cout << "    10. Inorder traversal." << std::endl;
+		std::cout << "    11. Build tree from text file." << std::endl;
+		std::cout << "    12. Clear tree." << std::endl;
+		std::cout << "    13. Insert an item into the tree." << std::endl;
+		std::cout << "    14. Remove an item from the tree." << std::endl;
+		std::cout << "    15. View tree structure." << std::endl;
+		std::cout << "    16. Go back." << std::endl << std::endl;
+
+		std::cout << "  ";
+		std::cin >> input; std::cin.clear(); std::cin.ignore();
+
+		if (input == 1)
+		{
+			Clear();
+
+			AVLTreeNode<string>* root = avlTree.getRoot();
+
+			if (root == nullptr)
+				cout << "The root is null.";
+			else
+				root->Visit();
+		}
+		else if (input == 2)
+		{
+			Clear();
+
+			cout << "Tree Size:  " << avlTree.getSize() << " elements";
+		}
+		else if (input == 3)
+		{
+			Clear();
+			int numOps = 0;  // Used for runtime checking
+
+			cout << "Height:  " << avlTree.getHeight(numOps);
+		}
+		else if (input == 4)
+		{
+			Clear();
+
+			cout << (avlTree.empty() ? "This tree is empty." : "This tree is not empty.");
+		}
+		else if (input == 5)
+		{
+			Clear();
+
+			cout << "Number of leaves:  " << avlTree.leaves();
+		}
+		else if (input == 6)
+		{
+			Clear();
+
+			int key;
+
+			cout << "Enter key to search:  ";
+			cin >> key;
+			cin.ignore();
+
+			try
+			{
+				avlTree.find(key)->Visit();
+			}
+			catch (const underflow_error& e)
+			{
+				cerr << e.what() << endl;
+			}
+		}
+		else if (input == 7)
+		{
+			Clear();
+
+			if (avlTree.empty())
+				cout << "There is nothing to display because the tree is empty." << endl;
+			else
+				avlTree.preorder();
+		}
+		else if (input == 8)
+		{
+			Clear();
+
+			if (avlTree.empty())
+				cout << "There is nothing to display because the tree is empty." << endl;
+			else
+				avlTree.postorder();
+		}
+		else if (input == 9)
+		{
+			Clear();
+
+			if (avlTree.empty())
+				cout << "There is nothing to display because the tree is empty." << endl;
+			else
+				avlTree.levelorder();
+		}
+		else if (input == 10)
+		{
+			Clear();
+
+			if (avlTree.empty())
+				cout << "There is nothing to display because the tree is empty." << endl;
+			else
+				avlTree.inorder();
+		}
+		else if (input == 11)
+		{
+			Clear();
+
+			cout << "Enter file name + extension:  ";
+			string fileName;
+
+			cin >> fileName;
+			cin.ignore();
+
+			avlTree.buildTree(fileName);
+		}
+		else if (input == 12)
+		{
+			Clear();
+
+			avlTree.clear();
+
+			cout << "AVL tree cleared.";
+		}
+		else if (input == 13)
+		{
+			Clear();
+
+			string data;
+			int key;
+
+			cout << "Enter new data:  ";
+			cin >> data;
+			cin.ignore();
+			cout << "Enter key:  ";
+			cin >> key;
+			cin.ignore();
+
+			int numOps = 0;
+
+			avlTree.insert(key, data, numOps);  // Runtime checking
+		}
+		else if (input == 14)
+		{
+			Clear();
+
+			int key;
+
+			cout << "Enter key of data to delete:  ";
+			cin >> key;
+			cin.ignore();
+
+			int numOps = 0;
+
+			avlTree.del(key, numOps);  // Runtime checking
+		}
+		else if (input == 15)
+		{
+			Clear();
+
+			PrintingPress<string>::SmartPrint(&avlTree, 300);
+		}
+		else if (input == 16)
+		{
+			Clear();
+			break;
+		}
+		else
+		{
+			Clear();
+			std::cout << std::endl << "  Invalid input." << std::endl << std::endl;
+		}
+
+		cout << endl;
 	}
 }

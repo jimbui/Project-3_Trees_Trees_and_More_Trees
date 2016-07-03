@@ -318,8 +318,8 @@ void Menu_Program::AVL_Tree_Loop()
 		std::cout << "    12. Clear tree." << std::endl;
 		std::cout << "    13. Insert an item into the tree." << std::endl;
 		std::cout << "    14. Remove an item from the tree." << std::endl;
-		std::cout << "    15. View tree structure." << std::endl;
-		std::cout << "    16. Go back." << std::endl << std::endl;
+		// std::cout << "    15. View tree structure." << std::endl;
+		std::cout << "    15. Go back." << std::endl << std::endl;
 
 		std::cout << "  ";
 		std::cin >> input; std::cin.clear(); std::cin.ignore();
@@ -468,13 +468,13 @@ void Menu_Program::AVL_Tree_Loop()
 
 			avlTree.del(key, numOps);  // Runtime checking
 		}
-		else if (input == 15)
+		/*else if (input == 15)
 		{
 			Clear();
 
 			PrintingPress<string>::SmartPrint(&avlTree, 300);
-		}
-		else if (input == 16)
+		}*/
+		else if (input == 15)
 		{
 			Clear();
 			break;

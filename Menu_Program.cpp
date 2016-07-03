@@ -419,13 +419,14 @@ void Menu_Program::AVL_Tree_Loop()
 		{
 			Clear();
 
-			cout << "Enter file name + extension:  ";
+			/*cout << "Enter file name + extension:  ";
 			string fileName;
 
 			cin >> fileName;
-			cin.ignore();
+			cin.ignore();*/
 
-			avlTree.buildTree(fileName);
+			avlTree.buildTree(/*fileName*/"AVLtree.txt");
+			cout << "Tree built." << endl;
 		}
 		else if (input == 12)
 		{

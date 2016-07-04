@@ -81,7 +81,7 @@ public:
                     }
                     else{
                         LinkedListNode<T> *tmp = ptr->next;
-                        ptr->id = ptr->next->id;
+                        // ptr->id = ptr->next->id;
                         ptr->data = ptr->next->data;
                         ptr->next = ptr->next->next;
                         delete tmp;
@@ -101,10 +101,10 @@ public:
     void printList() const{
         LinkedListNode<T> *ptr = head;
         while(ptr->next!=nullptr){
-            cout << "Node[" << ptr->id << "]= '" << ptr->data << "'-->";
+            // cout << "Node[" << ptr->id << "]= '" << ptr->data << "'-->";
             ptr = ptr->next;
         }
-        cout << "Node[" << ptr->id << "]= '" << ptr->data << "'-->";
+        // cout << "Node[" << ptr->id << "]= '" << ptr->data << "'-->";
         cout << "end" << endl;
     }
 

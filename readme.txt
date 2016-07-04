@@ -18,8 +18,24 @@ Typing in 1 and hitting enter on this menu will give the user access to all of t
 --> Goes to
 	1.  Create Stack - Creates a new stack of a user-specified initial size
 	--> Goes to
-		1. i do things.
-		10.  Back
+		1.  Return root of tree.
+	  	2.  Return number of elements in the tree.
+		3.  Returns the height of the tree.
+		4.  Return the height of a specific node.
+		5.  Return the depth of a specific node.
+		6.  Check if the tree is empty.
+		7.  Return the number of leaves in the tree.
+		8.  Return the number of siblings a specific node has.
+		9.  Find the common ancestor of two nodes.
+		10. Search for node by data.
+		11. Preorder traversal.
+		12. Postorder traversal.
+		13. Levelorder traversal.
+		14. Build tree from a text file.
+		15. Clear the tree.
+		16. Insert data into tree.
+		17. Delete data from tree.
+		18. Go back.
 <--	<-- Goes Back
 	2.  Back
 <-- Goes Back

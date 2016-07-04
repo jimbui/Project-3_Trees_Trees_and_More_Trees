@@ -319,7 +319,6 @@ void Menu_Program::AVL_Tree_Loop()
 		std::cout << "    12. Clear tree." << std::endl;
 		std::cout << "    13. Insert an item into the tree." << std::endl;
 		std::cout << "    14. Remove an item from the tree." << std::endl;
-		// std::cout << "    15. View tree structure." << std::endl;
 		std::cout << "    15. Go back." << std::endl << std::endl;
 
 		std::cout << "  ";
@@ -533,5 +532,130 @@ void Menu_Program::General_Tree_Create()
 
 void Menu_Program::General_Tree_Loop() 
 {
-	std::cout << "  General tree still under construction. \n\n" ; 
+	int input = 0;
+
+	while (true)
+	{
+		std::cout << "  AVL Tree Menu" << std::endl << std::endl;
+		std::cout << "    1.  Return root of tree." << std::endl;
+		std::cout << "    2.  Return number of elements in the tree." << std::endl;
+		std::cout << "    3.  Returns the height of the tree." << std::endl;
+		std::cout << "    4.  Return the height of a specific node." << std::endl;
+		std::cout << "    5.  Return the depth of a specific node." << std::endl;
+		std::cout << "    6.  Check if the tree is empty." << std::endl;
+		std::cout << "    7.  Return the number of leaves in the tree." << std::endl;
+		std::cout << "    8.  Return the number of siblings a specific node has." << std::endl;
+		std::cout << "    9.  Find the common ancestor of two nodes." << std::endl;
+		std::cout << "    10. Search for node by data." << std::endl;
+		std::cout << "    11. Preorder traversal." << std::endl;
+		std::cout << "    12. Postorder traversal." << std::endl;
+		std::cout << "    13. Levelorder traversal." << std::endl;
+		std::cout << "    14. Build tree from a text file." << std::endl ;
+		std::cout << "    15. Clear the tree." << std::endl ;
+		std::cout << "    16. Insert data into tree." << std::endl ;
+		std::cout << "    17. Delete data from tree." << std::endl ;
+		std::cout << "    18. Go back." << std::endl << std::endl ;
+
+		std::cout << "  ";
+		std::cin >> input; std::cin.clear(); std::cin.ignore();
+
+		if (input == 1)
+		{
+			Clear();
+		}
+
+		else if (input == 2)
+		{
+			Clear();
+		}
+
+		else if (input == 3)
+		{
+			Clear();
+		}
+
+		else if (input == 4)
+		{
+			Clear();
+		}
+
+		else if (input == 5)
+		{
+			Clear();
+		}
+
+		else if (input == 6)
+		{
+			Clear();
+		}
+
+		else if (input == 7)
+		{
+			Clear();
+		}
+
+		else if (input == 8)
+		{
+			Clear();
+		}
+
+		else if (input == 9)
+		{
+			Clear();
+		}
+
+		else if (input == 10)
+		{
+			Clear();
+		}
+
+		else if (input == 11)
+		{
+			Clear();
+		}
+
+		else if (input == 12)
+		{
+			Clear();
+		}
+
+		else if (input == 13)
+		{
+			Clear();
+		}
+
+		else if (input == 14)
+		{
+			Clear();
+		}
+
+		else if (input == 15)
+		{
+			Clear();
+		}
+
+		else if (input == 16)
+		{
+			Clear();
+		}
+
+		else if (input == 17)
+		{
+			Clear();
+		}
+
+		else if (input == 18)
+		{
+			Clear();
+			break;
+		}
+
+		else
+		{
+			Clear();
+			std::cout << std::endl << "  Invalid input." << std::endl << std::endl;
+		}
+
+		cout << endl;
+	}
 }

@@ -333,7 +333,10 @@ void Menu_Program::AVL_Tree_Loop()
 			if (root == nullptr)
 				cout << "The root is null.";
 			else
+			{
 				root->Visit();
+				// std::cout << root->getData() << " \n\n" ;
+			}
 		}
 		else if (input == 2)
 		{

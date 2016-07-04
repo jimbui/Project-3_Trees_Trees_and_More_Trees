@@ -379,8 +379,11 @@ public:
 			int key;
 			while (getline(myfile, line))
 			{
-				parseLine(line, key, data);
-				insert(key, data, duhr);
+				int pos = line.find('.') ;
+				std::string key_in = line.substr(0 , pos) ;
+				std::string data = line.substr(pos + 1) ;
+				int key = stoi(key_in) ;
+				this->insert(key , data , duhr) ;
 			}
 			myfile.close();
 		}
@@ -396,7 +399,7 @@ public:
 	}
 
 	// Inserts a new node with specified key and data values (O(log2(n)) best case, and O(n) is the worst case.)
-	void insert(const int& key, const T& data)
+	void insert(int key, T data)
 	{
 		if (root == nullptr)
 		{
@@ -449,7 +452,7 @@ public:
 		}
 	}
 
-	void insert(const int& key, const T& data, int& numOps)
+	void insert(int key , T data, int numOps)
 	{
 		if (root == nullptr)
 		{
@@ -573,7 +576,7 @@ public:
 				}
 
 				current->key = successor->key;
-				current->data = successor->data;
+				current->data_element = successor->data_element;
 
 				current = successor;
 			}

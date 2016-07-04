@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "mQueue.h"
+#include <string>
 
 using namespace std;
 
@@ -10,23 +11,22 @@ private:
 	int key;
 	int balanceFactor;
 
-	T data;
+	T data_element ;
 
 	AVLTreeNode<T>* parent;
 	AVLTreeNode<T>* leftChild;
 	AVLTreeNode<T>* rightChild;
 
 	template<class U> friend class AVLTree;
-	template<class U> friend class PrintingPress;
 
 public:
-	AVLTreeNode(const int& key, const T& data) :parent(0), leftChild(0), rightChild(0), balanceFactor(0)
+	AVLTreeNode(int key, T data_element) :parent(0), leftChild(0), rightChild(0), balanceFactor(0)
 	{
 		this->key = key;
-		this->data = data;
+		this->data_element = data_element;
 	}
 
-	T getData() const { return data; };
+	T getData() { return data_element; };
 
 	AVLTreeNode<T>* LeftChild() { return leftChild; };
 
@@ -34,10 +34,16 @@ public:
 
 	AVLTreeNode<T>* Parent() { return parent; };
 
-	void Visit() const
+	void Visit()
 	{
 		// I spent tree times as long as I wanted to, so I don't care about the balance factor error.
-		cout << "Data:  " << data << ", Key:  " << key << ", Balance Factor:  " << (leftChild == nullptr && rightChild == nullptr ? 0 : balanceFactor) << endl;
+		// cout << "data_element:  " ; 
+		std::cout << "    Key: " << key << " \n" ;
+		std::cout << "    Balance factor: " << balanceFactor << " \n" ;
+		std::cout << "    Data: " << this->getData() << " \n\n" ;
+
+
+		// std::cout << ", Key:  " << key << ", Balance Factor:  " << balanceFactor << endl ;
 	}
 
 	void PreOrder()

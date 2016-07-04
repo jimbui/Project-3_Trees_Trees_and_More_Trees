@@ -533,6 +533,8 @@ void Menu_Program::General_Tree_Create()
 void Menu_Program::General_Tree_Loop() 
 {
 	int input = 0;
+	GenLinkedTreeClass<string> admiral_Tree;
+	std::cout << "  General tree created from text file." << std::endl << std::endl;
 
 	while (true)
 	{
@@ -562,6 +564,9 @@ void Menu_Program::General_Tree_Loop()
 		if (input == 1)
 		{
 			Clear();
+
+			// if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			// else std::cout << "  The root of the tree is: " << admiral_Tree.getRoot() << " \n\n" ;
 		}
 
 		else if (input == 2)

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdexcept>
 using namespace std;
 
 template <class type> 
@@ -63,7 +64,8 @@ private:
 public:
 	GenLinkedTreeClass():root(0),size(0)
 	{
-		buildTree("tree.txt");
+		// buildTree("tree.txt");
+		buildTreeInsert() ;
 	}
 
 	~GenLinkedTreeClass() {
@@ -194,32 +196,32 @@ public:
 	}
 
 	//Find parent
-	GenTreeNode<type> * findParent(string str){
-        int level = 0;
-        for (int i=str.size()-1;i>=0;i--){
-            if (str[i]=='.') level++;
-        }
-        if (level<1) return root;
-        else{
-            int last_dot = str.find_last_of('.');
-            int cur_level = 0;
-            str = str.substr(last_dot+1); // 0.#.#.par_pos
-            string::size_type sz;
-            int par_pos = stoi(str,&sz);
-            GenTreeNode<type> * ptr = root;
-			LinkedList<GenTreeNode<type> *> *tmp;
-            while (ptr !=nullptr && cur_level!=level){
-				tmp = ptr->children;
-				//ptr= ptr->children->head->data;
-                cur_level++;
-            }
-			ptr = tmp->getData(par_pos);
-            /*for(int i=0;i<par_pos;i++){
-                ptr = ptr->children->getData();
-            }*/
-            return ptr;
-        }
-    }
+	// GenTreeNode<type> * findParent(string str){
+ //        int level = 0;
+ //        for (int i=str.size()-1;i>=0;i--){
+ //            if (str[i]=='.') level++;
+ //        }
+ //        if (level<1) return root;
+ //        else{
+ //            int last_dot = str.find_last_of('.');
+ //            int cur_level = 0;
+ //            str = str.substr(last_dot+1); // 0.#.#.par_pos
+ //            string::size_type sz;
+ //            int par_pos = stoi(str,&sz);
+ //            GenTreeNode<type> * ptr = root;
+	// 		LinkedList<GenTreeNode<type> *> *tmp;
+ //            while (ptr !=nullptr && cur_level!=level){
+	// 			tmp = ptr->children;
+	// 			//ptr= ptr->children->head->data;
+ //                cur_level++;
+ //            }
+	// 		ptr = tmp->getData(par_pos);
+ //            /*for(int i=0;i<par_pos;i++){
+ //                ptr = ptr->children->getData();
+ //            }*/
+ //            return ptr;
+ //        }
+ //    }
 
 	//Mutators
 
@@ -245,14 +247,25 @@ public:
 				str = str.substr(str.find_first_of(' ') + 1, str.length());
 
 				int currentLevel = 0;
-
-				GenTreeNode<type>* newNode = new GenTreeNode<type>(data, stoi(key));
+				int temp = stoi(key) ;
+				GenTreeNode<type>* newNode = new GenTreeNode<type>(data, temp);
 				GenTreeNode<type>* currentNode = root;
 
 				// Enter into while-loop --> this will be used to find the parent.
 				while (str.length() > 0)
 				{
-					int endPos = (str.find_first_of('.') < str.find_first_of('>') ? str.find_first_of('.') : str.find_first_of('>'));
+					// int endPos = (str.find_first_of('.') < str.find_first_of('>') ? str.find_first_of('.') : str.find_first_of('>'));
+					int endPos = 0 ;
+
+					if (str.find_first_of('.') < str.find_first_of('>'))
+					{
+						endPos = str.find_first_of('.') ;
+					}
+
+					else
+					{
+						endPos =str.find_first_of('>') ;
+					}
 
 					string parentIndex(str.substr(0, endPos));
 
@@ -264,7 +277,8 @@ public:
 
 					if (str.length() > 0 && currentLevel > 0 )
 					{
-						currentNode = currentNode->children->getData(stoi(parentIndex));  // Move to next child pointer
+						temp = stoi(parentIndex) ;
+						currentNode = currentNode->children->getData(temp);  // Move to next child pointer
 
 						int duh=666;
 					}
@@ -272,7 +286,11 @@ public:
 					{
 						 newNode->parent = currentNode;
 						 if (currentNode == nullptr){ root = newNode; }
-						 else currentNode->children->insert(newNode, stoi(parentIndex));
+						 else
+						 {
+						 	temp = stoi(parentIndex) ; 
+						 	currentNode->children->insert(newNode, temp);
+						 }
 						 size++;
 					}
 
@@ -295,6 +313,23 @@ public:
             myfile.close();
         }
         else cout << "Unable to open file";
+	}
+
+	void buildTreeInsert()
+	{
+		insert("data_structures" , NULL , 0 , 10) ; 
+		insert("hws" , findNode(10) , 0 , 11) ;
+		insert("projects" , findNode(10) , 1 , 12) ;
+		insert("quizzes" , findNode(10) , 2 , 13) ;
+		insert("exams" , findNode(10) , 3 , 14) ;
+		insert("hw1" , findNode(11) , 0 , 15) ;
+		insert("p1" , findNode(12) , 0 , 16) ;
+		insert("p2" , findNode(12) , 1 , 17) ;
+		insert("q1" , findNode(13) , 0 , 18) ;
+		insert("q2" , findNode(13) , 1 , 19) ;
+		insert("q3" , findNode(13) , 2 , 20) ;
+		insert("q4" , findNode(13) , 3 , 21) ;
+		insert("final_exam" , findNode(14) , 0 , 22) ;
 	}
 
 	void clear()

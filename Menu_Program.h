@@ -30,6 +30,9 @@ private:
 
 	void AVL_Tree_Create();
 	void AVL_Tree_Loop();
+
+	void General_Tree_Create() ;
+	void General_Tree_Loop() ;
 } ;
 
 #endif

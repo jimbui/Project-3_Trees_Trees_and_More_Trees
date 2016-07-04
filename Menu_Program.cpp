@@ -42,7 +42,8 @@ void Menu_Program::Main_Loop()
 
 		if (input == 1)
 		{
-			Clear() ;		
+			Clear() ;
+			General_Tree_Create() ;		
 		}
 
 		else if (input == 2)
@@ -490,4 +491,47 @@ void Menu_Program::AVL_Tree_Loop()
 
 		cout << endl;
 	}
+}
+
+void Menu_Program::General_Tree_Create()
+{
+	int input = 0 ;
+
+	while (true)
+	{
+		std::cout << "  General Tree Menu" << std::endl << std::endl ;
+		std::cout << "    1.  Create a general tree." << std::endl ;
+		std::cout << "    2.  Go back." << std::endl <<std::endl ;
+
+		std::cout << "  " ;
+		std::cin >> input ; std::cin.clear() ; std::cin.ignore() ;
+
+		if (input == 1)
+		{
+			Clear() ; 
+
+			// do something here.
+
+			General_Tree_Loop() ;
+
+			break ;
+		}
+
+		else if (input == 2)
+		{	
+			Clear() ;	
+			break ;
+		}
+
+		else
+		{
+			Clear() ;
+			std::cout << std::endl << "  Invalid input." << std::endl << std::endl ;
+		}
+	}
+}
+
+void Menu_Program::General_Tree_Loop() 
+{
+	std::cout << "  General tree still under construction. \n\n" ; 
 }

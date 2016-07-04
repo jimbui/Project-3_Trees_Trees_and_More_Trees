@@ -331,6 +331,21 @@ public:
 
 	void del (int key)
 	{
+		GenTreeNode<type> * done = findNode(key);
+		GenTreeNode<type> * replacement = nullptr;
 
+		if (done->children->isEmpty()) 
+		{ 
+			//delete done;
+			done->parent->children->del(done);
+		}
+		else {
+			replacement = done->children->getData();
+			done->data = replacement->data;
+			done->children = replacement->children;
+			done->key = replacement->key;
+			done->children->del(replacement);
+		}
+		size--;	
 	}
 };

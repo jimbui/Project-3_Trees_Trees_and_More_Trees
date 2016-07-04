@@ -70,6 +70,7 @@ public:
 
 	~GenLinkedTreeClass() {
 		delete root;
+		root = nullptr;
 	}
 
 	GenTreeNode<type>* getRoot() const {return root;}//returns root
@@ -335,6 +336,7 @@ public:
 	void clear()
 	{
 		delete root;
+		root = nullptr;
 		cout << "Tree has been deleted" << endl;
 	}
 

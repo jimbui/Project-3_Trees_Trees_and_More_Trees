@@ -43,7 +43,7 @@ Typing in 1 and hitting enter on this menu will give the user access to all of t
 --> Goes to
 	1.  Create a heap tree. - Creates a new heap tree of a user-specified initial size.
 	--> Goes to
-		1.  Return root of tree.
+            1.  Return root of tree.
 	    2.  Return number of elements in the tree.
 	    3.  Returns the height of the tree.
 	    4.  Check if the tree is empty.

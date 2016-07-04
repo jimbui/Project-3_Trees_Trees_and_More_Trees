@@ -538,7 +538,7 @@ void Menu_Program::General_Tree_Loop()
 
 	while (true)
 	{
-		std::cout << "  AVL Tree Menu" << std::endl << std::endl;
+		std::cout << "  General Tree Menu" << std::endl << std::endl;
 		std::cout << "    1.  Return root of tree." << std::endl;
 		std::cout << "    2.  Return number of elements in the tree." << std::endl;
 		std::cout << "    3.  Returns the height of the tree." << std::endl;
@@ -563,90 +563,121 @@ void Menu_Program::General_Tree_Loop()
 
 		if (input == 1)
 		{
-			Clear();
-
-			// if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
-			// else std::cout << "  The root of the tree is: " << admiral_Tree.getRoot() << " \n\n" ;
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "  The root of the tree is: " << endl;
+			admiral_Tree.getRoot()->Visit();
+			}
 		}
 
 		else if (input == 2)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   The size of the tree is: " << admiral_Tree.getSize();
 		}
 
 		else if (input == 3)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "    The height of the tree is: " << admiral_Tree.getHeight();
 		}
 
 		else if (input == 4)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "  The height of the root node: " << admiral_Tree.getHeight(admiral_Tree.getRoot());  
 		}
 
 		else if (input == 5)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "  The depth of the root node: " << admiral_Tree.getDepth(admiral_Tree.getRoot());  
 		}
 
 		else if (input == 6)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   The tree is not empty.  " << endl;
 		}
 
 		else if (input == 7)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   The number of leaves on tree are:  " << admiral_Tree.leaves();
 		}
 
 		else if (input == 8)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   The number of siblings of the root are:  " << admiral_Tree.siblings(admiral_Tree.getRoot());
 		}
 
 		else if (input == 9)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "    This function requires two nodes.  "  << endl;
 		}
 
 		else if (input == 10)
 		{
-			Clear();
+			int key;
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "   Enter a data to search:  " << endl;
+			std::cin >> key;
+			admiral_Tree.findNode(key)->Visit();
+			}
 		}
 
 		else if (input == 11)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "   Preorder traversal: " << endl;
+			admiral_Tree.preorder();
+			}
 		}
 
 		else if (input == 12)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "   Postorder traversal: " << endl;
+			admiral_Tree.postorder();
+			}
 		}
 
 		else if (input == 13)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "   Levelorder traversal: " << endl;
+			admiral_Tree.levelorder();
+			}
 		}
 
 		else if (input == 14)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   Tree was builded." << endl;
 		}
 
 		else if (input == 15)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else admiral_Tree.clear();
 		}
 
 		else if (input == 16)
 		{
-			Clear();
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else std::cout << "   Tree is created from the tree.txt file  " << endl;
 		}
 
 		else if (input == 17)
 		{
-			Clear();
+			int key;
+			if (admiral_Tree.empty()) std::cout << "  The tree is empty. \n\n" ;
+			else {std::cout << "   Enter a key to delete: " << endl;
+			std::cin >> key;
+			admiral_Tree.del(key);
+			cout << "  Element at key " << key << " was deleted.";
+			}
 		}
 
 		else if (input == 18)
